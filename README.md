@@ -1,9 +1,20 @@
-# How do different blackjack strategies impact the expected monetary outcome of playing and what is the most effective strategy?
+# Project Proposal: 
+## How do different blackjack strategies impact the expected monetary outcome of playing?
 
-In this research paper, rounds of Blackjack will be simulated, the hands should be fair and respect what could be expected from a real blackjack game in a casino, this includes but is not limited to: the number of decks used, when cards are reshuffled and payouts. 
-Based on this simulation, several strategies will be tried, The first strategy is basic strategy. Basic strategy is the optimized way to play blackjack without actually counting cards, it simply returns the best play in terms of probability based only on the player’s hand and on dealer’s upcard (the card shown by the dealer).
 
-The second strategy is called Omega II, this strategy assigns a value to each card and helps players determine if they have the advantage over the casino and when to bet more. 
+In this research paper, I propose to simulate Blackjack games as they could be found in a casino. Using this simulated game, we will analyze the outcomes when different strategies are applied. The main strategies I will be focused on will be:
 
-This project will simulate many rounds and will allow us to see the probabilities and statistics behind the game of blackjack.
-The mathematics will show us how casinos expect to make money from players.
+1. Basic Strategy: The baseline, it is the best way someone may play without counting cards.
+2. Omega-II: This strategy involves counting cards, assigning a value to each card, and eventually returning a "count". The count helps players determine when they have an advantage and when to bet more.
+Using these strategies, the outcomes will be analyzed; indicators of performance will be used, such as the house edge (the advantage the casino has over players) or the number of games that may be played.
+
+Many variables affect card counting. The number of decks is very important and a higher number of decks makes it harder to count. Several casinos also use continuous shuffling machines, where discarded cards are continuously added to the deck, making counting cards even harder. This and more will be discussed in this project.
+
+My objectives for this project are:
+
+1. To implement a blackjack simulation.
+2. To implement card counting strategies.
+3. To analyze game outcomes.
+4. Draw conclusions from these outcomes and discuss what variables impact the effectiveness of these strategies.
+
+Overall, this project will help develop my ability to code and will demonstrate my ability to apply concepts learned in class.
