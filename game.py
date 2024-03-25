@@ -1,7 +1,10 @@
 import random as rand
 from math import *
 
-value = {"Ace": 11, "2": 2, "3": 3, "4":4, "5":5, "6":6, "7":7, "8":8, "9":9, "10":10, "Jack":10, "Queen":10, "King":10}
+values = {"Ace": 11, "2": 2, "3": 3, "4":4, "5":5, "6":6, "7":7, "8":8, "9":9, "10":10, "Jack":10, "Queen":10, "King":10}
+BJ_payout = 1.5
+spread = 10
+
 
 class Deck():
     def __init__(self, deck_num = 1):
@@ -39,8 +42,68 @@ class Hand:
     def __init__(self):
         self.hand = []
     
-    def value(self, hand):
-        value = 0
+    def get_card(self, card):
+        self.hand.append(card)
+
+    def get_value(self):
+        self.value = 0
+        aces = 0
+        for card in self.hand:
+            self.value += values[card]
+            if card == 'Ace':
+                aces += 1
+        if self.value > 21 & aces > 0:
+            self.value -= 10
+            aces -= 1
+        return self.value
     
     def reset_hand(self):
         self.hand = []
+
+class Player(object):
+    def __init__(self, balance):
+        self.balance = balance
+        self.bet = 0
+        self.choice = None
+    
+    def get_balance(self):
+        print('Your balance is:',self.balance)
+    
+    def win(self):
+        self.balance += self.bet
+
+    def bj_win(self):
+        self.balance += (BJ_payout*self.bet)
+    
+    def loss(self):
+        self.balance -= self.bet
+    
+    def place_bet(self, bet):
+        while True:
+            try:
+                if bet > self.balance:
+                    print('Not enough money')
+                else:
+                    self.bet = bet
+                    break
+            except ValueError:
+                print('This is not a number')
+
+
+class Blackjack_input(object):
+    def __init__(self, decks, money):
+        self.deck = decks
+        self.money = money
+        
+
+    def play_game(self):
+        deck = Deck(self.deck)
+        deck.deck_creation()
+        deck.shuffle()
+        print('Welcome to the blackjack game')
+        while True:
+            b = input('Please enter the amount of money you will would like to bet: ')
+
+            choice = input('Would you like to keep playing? (y/n)')
+            if choice.lower() == 'n':
+                break
